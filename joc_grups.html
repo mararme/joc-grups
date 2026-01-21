@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Joc de grups musicals</title>
+<style>
+  body {
+    font-family: sans-serif;
+    padding: 20px;
+    background: #f0f0f0;
+  }
+  #grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+  }
+  .card {
+    background: white;
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.2s;
+    min-height: 100px;
+  }
+  .card.descartat {
+    background: #d9d9d9;
+    text-decoration: line-through;
+  }
+  button {
+    margin: 20px 0;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+  }
+</style>
+</head>
+<body>
+
+<h2>Joc de grups musicals</h2>
+<button id="nova">Nova partida</button>
+<div id="grid"></div>
+
+<script>
+const grups = [
+  {nom:"BEATLES", any:1963, estils:"rock/pop"},
+  {nom:"JOHN LENNON", any:1970, estils:"rock/pop"},
+  {nom:"ERIC CLAPTON", any:1966, estils:"blues rock"},
+  {nom:"LED ZEPPELIN", any:1969, estils:"hard rock / heavy metal"},
+  {nom:"DAVE DAVIES", any:1967, estils:"rock/pop"},
+  {nom:"THE KINKS", any:1964, estils:"rock/pop / garage rock"},
+  {nom:"GEORGE HARRISON", any:1970, estils:"rock/pop / folk"},
+  {nom:"BOB DYLAN", any:1962, estils:"folk / rock"},
+  {nom:"ROLLING STONES", any:1964, estils:"rock / blues rock"},
+  {nom:"CHUCK BERRY", any:1955, estils:"rock & roll"},
+  {nom:"THE DOORS", any:1967, estils:"psychedelic rock / rock"},
+  {nom:"DIRE STRAITS", any:1978, estils:"rock / blues rock"},
+  {nom:"AEROSMITH", any:1973, estils:"hard rock"},
+  {nom:"THE POLICE", any:1978, estils:"rock / new wave"},
+  {nom:"MUSE", any:1999, estils:"alternative rock / progressive rock"},
+  {nom:"PLACEBO", any:1996, estils:"alternative rock / indie rock"},
+  {nom:"PINK FLOYD", any:1967, estils:"progressive rock / psychedelic rock"},
+  {nom:"NIRVANA", any:1989, estils:"grunge / alternative rock"},
+  {nom:"INHALER", any:2017, estils:"indie rock"},
+  {nom:"SCORPIONS", any:1965, estils:"hard rock / heavy metal"},
+  {nom:"DIO", any:1983, estils:"heavy metal"},
+  {nom:"RAINBOW", any:1975, estils:"hard rock / heavy metal"},
+  {nom:"THE CURE", any:1979, estils:"post-punk / gothic rock"},
+  {nom:"VAN HALEN", any:1978, estils:"hard rock / heavy metal"},
+  {nom:"GUNS N’ ROSES", any:1987, estils:"hard rock"},
+  {nom:"QUEEN", any:1973, estils:"rock / glam rock / progressive rock"},
+  {nom:"GREEN DAY", any:1989, estils:"punk rock / pop punk"},
+  {nom:"METALLICA", any:1983, estils:"thrash metal / heavy metal"},
+  {nom:"THE SMITHS", any:1983, estils:"indie rock / alternative rock"},
+  {nom:"STATUS QUO", any:1968, estils:"rock / boogie rock"},
+  {nom:"THE STROKES", any:2001, estils:"indie rock / garage rock"},
+  {nom:"U2", any:1979, estils:"rock / post-punk"},
+  {nom:"SYSTEM OF A DOWN", any:1994, estils:"alternative metal / nu metal"},
+  {nom:"SOUNDGARDEN", any:1984, estils:"grunge / alternative rock"},
+  {nom:"RED HOT CHILI PEPPERS", any:1984, estils:"funk rock / alternative rock"},
+  {nom:"BLACK SABBATH", any:1969, estils:"heavy metal / hard rock"},
+  {nom:"OASIS", any:1994, estils:"britpop / rock"},
+  {nom:"DAVID BOWIE", any:1967, estils:"rock / glam rock / art rock"},
+  {nom:"BON JOVI", any:1984, estils:"hard rock / glam metal / rock"}
+];
+
+const grid = document.getElementById("grid");
+
+// Crear cartes
+grups.forEach(g => {
+  const card = document.createElement("div");
+  card.className = "card";
+  card.innerHTML = `<strong>${g.nom}</strong><br>Any: ${g.any}<br>Estils: ${g.estils}`;
+  
+  card.addEventListener("click", () => {
+    card.classList.toggle("descartat");
+  });
+  
+  grid.appendChild(card);
+});
+
+// Botó Nova partida
+document.getElementById("nova").addEventListener("click", () => {
+  document.querySelectorAll(".card").forEach(card => card.classList.remove("descartat"));
+});
+</script>
+
+</body>
+</html>
