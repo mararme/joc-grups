@@ -7,7 +7,7 @@
 <style>
   body {
     font-family: sans-serif;
-    padding: 20px;
+    padding: 15px;
     background: #f0f0f0;
   }
   #grid {
@@ -35,6 +35,12 @@
     font-size: 16px;
     border-radius: 5px;
   }
+  @media (max-width: 600px) {
+  #grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
 </style>
 </head>
 <body>
@@ -45,56 +51,57 @@
 
 <script>
 const grups = [
-  {nom:"BEATLES", any:1963},
-  {nom:"JOHN LENNON", any:1970},
-  {nom:"ERIC CLAPTON", any:1966},
-  {nom:"LED ZEPPELIN", any:1969},
-  {nom:"DAVE DAVIES", any:1980},
-  {nom:"THE KINKS", any:1964},
-  {nom:"GEORGE HARRISON", any:1970},
+ff
   {nom:"BOB DYLAN", any:1962},
+  {nom:"BEATLES", any:1963},
+  {nom:"THE KINKS", any:1964},
   {nom:"ROLLING STONES", any:1964},
-  {nom:"CHUCK BERRY", any:1955},
-  {nom:"THE DOORS", any:1967},
-  {nom:"DIRE STRAITS", any:1978},
-  {nom:"AEROSMITH", any:1973},
-  {nom:"THE POLICE", any:1978},
-  {nom:"MUSE", any:1999},
-  {nom:"PLACEBO", any:1996},
-  {nom:"PINK FLOYD", any:1967},
-  {nom:"NIRVANA", any:1989},
-  {nom:"INHALER", any:2017},
-  {nom:"SCORPIONS", any:1965},
-  {nom:"DIO", any:1983},
-  {nom:"RAINBOW", any:1975},
-  {nom:"THE CURE", any:1979},
-  {nom:"VAN HALEN", any:1978},
-  {nom:"GUNS N' ROSES", any:1987},
-  {nom:"QUEEN", any:1973},
-  {nom:"GREEN DAY", any:1989},
-  {nom:"METALLICA", any:1983},
-  {nom:"THE SMITHS", any:1983},
-  {nom:"STATUS QUO", any:1968},
-  {nom:"THE STROKES", any:2001},
-  {nom:"U2", any:1979},
-  {nom:"SYSTEM OF A DOWN", any:1998},
-  {nom:"SOUNDGARDEN", any:1984},
-  {nom:"RED HOT CHILI PEPPERS", any:1984},
-  {nom:"BLACK SABBATH", any:1969},
-  {nom:"OASIS", any:1994},
-  {nom:"DAVID BOWIE", any:1967},
-  {nom:"BON JOVI", any:1984},
-  {nom:"TRAFFIC", any:1968},
+  {nom:"YARDBIRDS", any:1965},
   {nom:"THE BYRDS", any:1965},
   {nom:"BUFFALO SPRINGFIELD", any:1966},
   {nom:"JIMI HENDRIX", any:1967},
+  {nom:"ERIC CLAPTON", any:1966},
   {nom:"CREAM", any:1966},
-  {nom:"YARDBIRDS", any:1965},
+  {nom:"THE DOORS", any:1967},
+  {nom:"PINK FLOYD", any:1967}, 
+  {nom:"DAVID BOWIE", any:1967},
+  {nom:"TRAFFIC", any:1968},
+  {nom:"STATUS QUO", any:1968},
+  {nom:"LED ZEPPELIN", any:1969},
+  {nom:"BLACK SABBATH", any:1969},
+  {nom:"JOHN LENNON", any:1970},
+  {nom:"GEORGE HARRISON", any:1970},
+  {nom:"SCORPIONS", any:1972},
+  {nom:"QUEEN", any:1973},
+  {nom:"AEROSMITH", any:1973},
+  {nom:"RAINBOW", any:1975},
   {nom:"PRINCE", any:1978},
-  {nom:"EVANESCENCE", any:2003},
-  {nom:"CRANBERRIES", any:1993},  
+  {nom:"THE POLICE", any:1978},
+  {nom:"DIRE STRAITS", any:1978},
+  {nom:"VAN HALEN", any:1978},
+  {nom:"THE CURE", any:1979},
+  {nom:"U2", any:1979},
+  {nom:"DAVE DAVIES", any:1980},
   {nom:"OZZY OSBOURNE", any:1980},
-  {nom:"EXTREMODURO", any:1989}
+  {nom:"DIO", any:1983},
+  {nom:"METALLICA", any:1983},
+  {nom:"THE SMITHS", any:1983}, 
+  {nom:"SOUNDGARDEN", any:1984},  
+  {nom:"BON JOVI", any:1984},
+  {nom:"RED HOT CHILI PEPPERS", any:1984},
+  {nom:"GUNS N' ROSES", any:1987},
+  {nom:"EXTREMODURO", any:1989},
+  {nom:"NIRVANA", any:1989},
+  {nom:"GREEN DAY", any:1989},
+  {nom:"CRANBERRIES", any:1993},  
+  {nom:"OASIS", any:1994},
+  {nom:"PLACEBO", any:1996},
+  {nom:"SYSTEM OF A DOWN", any:1998},
+  {nom:"MUSE", any:1999},
+  {nom:"THE STROKES", any:2001},
+  {nom:"EVANESCENCE", any:2003},
+  {nom:"INHALER", any:2017},
+
 ];
 
 const grid = document.getElementById("grid");
