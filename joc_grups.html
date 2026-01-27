@@ -69,7 +69,7 @@ const grups = [
   {nom:"RAINBOW", any:1975},
   {nom:"THE CURE", any:1979},
   {nom:"VAN HALEN", any:1978},
-  {nom:"GUNS N’ ROSES", any:1987},
+  {nom:"GUNS N' ROSES", any:1987},
   {nom:"QUEEN", any:1973},
   {nom:"GREEN DAY", any:1989},
   {nom:"METALLICA", any:1983},
@@ -112,10 +112,10 @@ grups.forEach(g => {
   grid.appendChild(card);
 });
 
-  
 // Botó Nova partida
 document.getElementById("nova").addEventListener("click", () => {
-  document.querySelectorAll(".card").forEach(card => card.classList.remove("descartat"));
+  document.querySelectorAll(".card")
+    .forEach(card => card.classList.remove("descartat"));
 });
 </script>
 
