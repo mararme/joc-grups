@@ -21,8 +21,123 @@
     margin-bottom: 15px;
   }
 
-  label {
-    display: block;
+  #controls {
     margin-bottom: 15px;
-    cursor: pointer;
+  }
+
+  label {
     font-size: 14px;
+    cursor: pointer;
+  }
+
+  #grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 10px;
+  }
+
+  .card {
+    background: white;
+    border: 2px solid black;
+    padding: 8px;
+    text-align: center;
+    cursor: pointer;
+    min-height: 55px;
+    box-shadow: 3px 3px 0 black;
+    font-size: 13px;
+  }
+
+  .card strong {
+    display: block;
+    font-size: 14px;
+  }
+
+  .any {
+    font-size: 12px;
+  }
+
+  .card.descartat {
+    background: #d9d9d9;
+    box-shadow: none;
+    opacity: 0.7;
+  }
+
+  button {
+    margin-bottom: 10px;
+    padding: 10px 22px;
+    font-size: 16px;
+    font-weight: bold;
+    background: #f5f5f5;
+    color: black;
+    border: 2px solid black;
+    box-shadow: 3px 3px 0 black;
+    cursor: pointer;
+  }
+
+  button:active {
+    box-shadow: 1px 1px 0 black;
+    transform: translate(2px, 2px);
+  }
+
+  @media (max-width: 600px) {
+    #grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+</style>
+</head>
+
+<body>
+
+<h2>Joc de grups musicals</h2>
+
+<div id="controls">
+  <button id="nova">Nova partida</button><br>
+  <label>
+    <input type="checkbox" id="toggleAny" checked>
+    Mostrar anys
+  </label>
+</div>
+
+<div id="grid"></div>
+
+<script>
+const grups = [
+  {nom:"BOB DYLAN", any:1962},
+  {nom:"BEATLES", any:1963},
+  {nom:"THE KINKS", any:1964},
+  {nom:"ROLLING STONES", any:1964},
+  {nom:"YARDBIRDS", any:1965},
+  {nom:"THE BYRDS", any:1965},
+  {nom:"BUFFALO SPRINGFIELD", any:1966},
+  {nom:"ERIC CLAPTON", any:1966},
+  {nom:"CREAM", any:1966},
+  {nom:"JIMI HENDRIX", any:1967},
+  {nom:"THE DOORS", any:1967},
+  {nom:"PINK FLOYD", any:1967},
+  {nom:"DAVID BOWIE", any:1967},
+  {nom:"TRAFFIC", any:1968},
+  {nom:"STATUS QUO", any:1968},
+  {nom:"LED ZEPPELIN", any:1969},
+  {nom:"BLACK SABBATH", any:1969},
+  {nom:"JOHN LENNON", any:1970},
+  {nom:"GEORGE HARRISON", any:1970},
+  {nom:"QUEEN", any:1973},
+  {nom:"AEROSMITH", any:1973},
+  {nom:"PRINCE", any:1978},
+  {nom:"THE POLICE", any:1978},
+  {nom:"VAN HALEN", any:1978},
+  {nom:"THE CURE", any:1979},
+  {nom:"U2", any:1979},
+  {nom:"METALLICA", any:1983},
+  {nom:"NIRVANA", any:1989},
+  {nom:"OASIS", any:1994},
+  {nom:"MUSE", any:1999},
+  {nom:"INHALER", any:2017}
+];
+
+const grid = document.getElementById("grid");
+
+function crearCartes() {
+  grid.innerHTML = "";
+  for (let i = 0; i < grup
