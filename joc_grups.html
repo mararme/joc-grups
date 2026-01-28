@@ -21,22 +21,43 @@
     margin-bottom: 15px;
   }
 
-  #controls {
-    margin-bottom: 15px;
-  }
+#controls {
+  display: flex;        /* fa que botó i checkbox estiguin al costat */
+  align-items: center;  /* centrat verticalment */
+  gap: 10px;            /* separació entre botó i checkbox */
+  margin-bottom: 15px;  /* pots mantenir el marge de sota */
+}
+
+#controls label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 16px;
+  color: #555;          /* gris */
+}
+
+#controls input[type="checkbox"] {
+  width: 20px;
+  height: 20px;         /* checkbox més gran */
+}
+
 
   label {
     font-size: 14px;
     cursor: pointer;
   }
 
-  #grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    gap: 10px;
-  }
+ #grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 10px;
+  justify-items: center; 
+}
+
 
   .card {
+    width: 100%;
+    box-sizing: border-box; 
     background: white;
     border: 2px solid black;
     padding: 8px;
@@ -73,6 +94,7 @@
     border: 2px solid black;
     box-shadow: 3px 3px 0 black;
     cursor: pointer;
+    font-family: "American Typewriter", monospace;
   }
 
   button:active {
@@ -80,11 +102,11 @@
     transform: translate(2px, 2px);
   }
 
-  @media (max-width: 600px) {
-    #grid {
-      grid-template-columns: repeat(3, 1fr);
-    }
+@media (max-width: 600px) {
+  #grid {
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
   }
+}
   .card.sense-any {
   min-height: 38px;
   padding-top: 10px;
@@ -97,13 +119,14 @@
 
 <h2>Joc de grups musicals</h2>
 
-<div id="controls">
-  <button id="nova">Nova partida</button><br>
-  <label>
-    <input type="checkbox" id="toggleAny" checked>
+<div id="controls" style="display:flex; align-items:center; gap:10px;">
+  <button id="nova">Nova partida</button>
+  <label style="display:flex; align-items:center; gap:5px; font-size:16px; color:#555;">
+    <input type="checkbox" id="toggleAny" checked style="width:20px; height:20px;">
     Mostrar anys
   </label>
 </div>
+
 
 <div id="grid"></div>
 
