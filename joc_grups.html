@@ -7,7 +7,7 @@
 
 <style>
   body {
-    font-family: "Courier New", monospace;
+    font-family: "American Typewriter", monospace;
     padding: 15px;
     background: #f0f0f0;
   }
@@ -45,6 +45,7 @@
     min-height: 55px;
     box-shadow: 3px 3px 0 black;
     font-size: 13px;
+    transition: min-height 0.2s ease, padding 0.2s ease;
   }
 
   .card strong {
@@ -84,6 +85,11 @@
       grid-template-columns: repeat(3, 1fr);
     }
   }
+  .card.sense-any {
+  min-height: 38px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
 </style>
 </head>
 
@@ -180,6 +186,14 @@ function crearCartes() {
     card.addEventListener("click", () => {
       card.classList.toggle("descartat");
     });
+    card.addEventListener("dblclick", () => {
+  const nomWiki = grup.nom
+    .toLowerCase()
+    .replace(/\s+/g, "_");
+
+  const url = `https://en.wikipedia.org/wiki/${nomWiki}`;
+  window.open(url, "_blank");
+});
 
     grid.appendChild(card);
   });
@@ -188,10 +202,19 @@ function crearCartes() {
 }
 
 function actualitzarAnys() {
-  document.querySelectorAll(".any").forEach(anyDiv => {
-    anyDiv.style.display = toggleAny.checked ? "block" : "none";
+  document.querySelectorAll(".card").forEach(card => {
+    const anyDiv = card.querySelector(".any");
+
+    if (toggleAny.checked) {
+      anyDiv.style.display = "block";
+      card.classList.remove("sense-any");
+    } else {
+      anyDiv.style.display = "none";
+      card.classList.add("sense-any");
+    }
   });
 }
+
 
 toggleAny.addEventListener("change", actualitzarAnys);
 novaBtn.addEventListener("click", crearCartes);
