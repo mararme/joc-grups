@@ -4,145 +4,25 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Joc de grups musicals</title>
+
 <style>
   body {
-    font-family: sans-serif;
+    font-family: "Courier New", monospace;
     padding: 15px;
     background: #f0f0f0;
   }
-  #grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    gap: 10px;
+
+  h2 {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-bottom: 3px solid black;
+    display: inline-block;
+    padding-bottom: 6px;
+    margin-bottom: 15px;
   }
-  .card {
-    background: white;
-    border-radius: 10px;
-    padding: 8px;
-    text-align: center;
+
+  label {
+    display: block;
+    margin-bottom: 15px;
     cursor: pointer;
-    transition: 0.2s;
-    min-height: 60px;
-    word-break: break-word;
     font-size: 14px;
-  }
-  .card.descartat {
-    background: #d9d9d9;
-  }
-button {
-  margin: 20px 0;
-  padding: 10px 22px;
-  font-size: 16px;
-  font-weight: bold;
-  text-transform: uppercase;
-
-  background: #f5f5f5;
-  color: black;
-  border: 2px solid black;
-  border-radius: 0;            
-  
-  box-shadow: 3px 3px 0 black;   
-  cursor: pointer;
-}
- 
-button:hover {
-  background: #eaeaea;
-}
-
-button:active {
-  box-shadow: 1px 1px 0 black;
-  transform: translate(2px, 2px); /* efecte botó premut */
-}
-
-  @media (max-width: 600px) {
-  #grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-</style>
-</head>
-<body>
-
-<h2>Joc de grups musicals</h2>
-<button id="nova">Nova partida</button>
-<div id="grid"></div>
-
-<script>
-const grups = [
-  {nom:"BOB DYLAN", any:1962},
-  {nom:"BEATLES", any:1963},
-  {nom:"THE KINKS", any:1964},
-  {nom:"ROLLING STONES", any:1964},
-  {nom:"YARDBIRDS", any:1965},
-  {nom:"THE BYRDS", any:1965},
-  {nom:"BUFFALO SPRINGFIELD", any:1966},
-  {nom:"JIMI HENDRIX", any:1967},
-  {nom:"ERIC CLAPTON", any:1966},
-  {nom:"CREAM", any:1966},
-  {nom:"THE DOORS", any:1967},
-  {nom:"PINK FLOYD", any:1967}, 
-  {nom:"DAVID BOWIE", any:1967},
-  {nom:"TRAFFIC", any:1968},
-  {nom:"STATUS QUO", any:1968},
-  {nom:"LED ZEPPELIN", any:1969},
-  {nom:"BLACK SABBATH", any:1969},
-  {nom:"JOHN LENNON", any:1970},
-  {nom:"GEORGE HARRISON", any:1970},
-  {nom:"SCORPIONS", any:1972},
-  {nom:"QUEEN", any:1973},
-  {nom:"AEROSMITH", any:1973},
-  {nom:"RAINBOW", any:1975},
-  {nom:"PRINCE", any:1978},
-  {nom:"THE POLICE", any:1978},
-  {nom:"DIRE STRAITS", any:1978},
-  {nom:"VAN HALEN", any:1978},
-  {nom:"THE CURE", any:1979},
-  {nom:"U2", any:1979},
-  {nom:"DAVE DAVIES", any:1980},
-  {nom:"OZZY OSBOURNE", any:1980},
-  {nom:"DIO", any:1983},
-  {nom:"METALLICA", any:1983},
-  {nom:"THE SMITHS", any:1983}, 
-  {nom:"SOUNDGARDEN", any:1984},  
-  {nom:"BON JOVI", any:1984},
-  {nom:"RED HOT CHILI PEPPERS", any:1984},
-  {nom:"GUNS N' ROSES", any:1987},
-  {nom:"EXTREMODURO", any:1989},
-  {nom:"NIRVANA", any:1989},
-  {nom:"GREEN DAY", any:1989},
-  {nom:"CRANBERRIES", any:1993},  
-  {nom:"OASIS", any:1994},
-  {nom:"PLACEBO", any:1996},
-  {nom:"SYSTEM OF A DOWN", any:1998},
-  {nom:"MUSE", any:1999},
-  {nom:"THE STROKES", any:2001},
-  {nom:"EVANESCENCE", any:2003},
-  {nom:"INHALER", any:2017},
-
-];
-
-const grid = document.getElementById("grid");
-
-// Crear cartes
-grups.forEach(g => {
-  const card = document.createElement("div");
-  card.className = "card";
-  card.innerHTML = `<strong>${g.nom}</strong><br>Any: ${g.any}`;
-  
-  card.addEventListener("click", () => {
-    card.classList.toggle("descartat");
-  });
-  
-  grid.appendChild(card);
-});
-
-// Botó Nova partida
-document.getElementById("nova").addEventListener("click", () => {
-  document.querySelectorAll(".card")
-    .forEach(card => card.classList.remove("descartat"));
-});
-</script>
-
-</body>
-</html>
