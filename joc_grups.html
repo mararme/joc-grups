@@ -103,41 +103,99 @@
 
 <script>
 const grups = [
-  {nom:"BOB DYLAN", any:1962},
+    {nom:"BOB DYLAN", any:1962},
   {nom:"BEATLES", any:1963},
   {nom:"THE KINKS", any:1964},
   {nom:"ROLLING STONES", any:1964},
   {nom:"YARDBIRDS", any:1965},
   {nom:"THE BYRDS", any:1965},
   {nom:"BUFFALO SPRINGFIELD", any:1966},
+  {nom:"JIMI HENDRIX", any:1967},
   {nom:"ERIC CLAPTON", any:1966},
   {nom:"CREAM", any:1966},
-  {nom:"JIMI HENDRIX", any:1967},
   {nom:"THE DOORS", any:1967},
-  {nom:"PINK FLOYD", any:1967},
+  {nom:"PINK FLOYD", any:1967}, 
   {nom:"DAVID BOWIE", any:1967},
   {nom:"TRAFFIC", any:1968},
   {nom:"STATUS QUO", any:1968},
   {nom:"LED ZEPPELIN", any:1969},
   {nom:"BLACK SABBATH", any:1969},
+
+
   {nom:"JOHN LENNON", any:1970},
   {nom:"GEORGE HARRISON", any:1970},
+  {nom:"SCORPIONS", any:1972},
   {nom:"QUEEN", any:1973},
   {nom:"AEROSMITH", any:1973},
+  {nom:"RAINBOW", any:1975},
   {nom:"PRINCE", any:1978},
   {nom:"THE POLICE", any:1978},
+  {nom:"DIRE STRAITS", any:1978},
   {nom:"VAN HALEN", any:1978},
   {nom:"THE CURE", any:1979},
   {nom:"U2", any:1979},
+
+
+
+  {nom:"DAVE DAVIES", any:1980},
+  {nom:"OZZY OSBOURNE", any:1980},
+  {nom:"DIO", any:1983},
   {nom:"METALLICA", any:1983},
+  {nom:"THE SMITHS", any:1983}, 
+  {nom:"SOUNDGARDEN", any:1984},  
+  {nom:"BON JOVI", any:1984},
+  {nom:"RED HOT CHILI PEPPERS", any:1984},
+  {nom:"GUNS N' ROSES", any:1987},
+  {nom:"EXTREMODURO", any:1989},
   {nom:"NIRVANA", any:1989},
+  {nom:"GREEN DAY", any:1989},
+  {nom:"CRANBERRIES", any:1993},  
   {nom:"OASIS", any:1994},
+  {nom:"PLACEBO", any:1996},
+  {nom:"SYSTEM OF A DOWN", any:1998},
   {nom:"MUSE", any:1999},
+
+
+  {nom:"THE STROKES", any:2001},
+  {nom:"EVANESCENCE", any:2003},
   {nom:"INHALER", any:2017}
 ];
 
 const grid = document.getElementById("grid");
+const toggleAny = document.getElementById("toggleAny");
+const novaBtn = document.getElementById("nova");
 
 function crearCartes() {
   grid.innerHTML = "";
-  for (let i = 0; i < grup
+
+  grups.forEach(grup => {
+    const card = document.createElement("div");
+    card.className = "card";
+
+    card.innerHTML = `
+      <strong>${grup.nom}</strong>
+      <div class="any">${grup.any}</div>
+    `;
+
+    card.addEventListener("click", () => {
+      card.classList.toggle("descartat");
+    });
+
+    grid.appendChild(card);
+  });
+
+  actualitzarAnys();
+}
+
+function actualitzarAnys() {
+  document.querySelectorAll(".any").forEach(anyDiv => {
+    anyDiv.style.display = toggleAny.checked ? "block" : "none";
+  });
+}
+
+toggleAny.addEventListener("change", actualitzarAnys);
+novaBtn.addEventListener("click", crearCartes);
+
+// crear cartes al carregar la pàgina
+crearCartes();
+</script>
