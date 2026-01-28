@@ -24,17 +24,36 @@
     transition: 0.2s;
     min-height: 60px;
     word-break: break-word;
-    font-size: 14;
+    font-size: 14px;
   }
   .card.descartat {
     background: #d9d9d9;
   }
-  button {
-    margin: 20px 0;
-    padding: 10px 20px;
-    font-size: 16px;
-    border-radius: 5px;
-  }
+button {
+  margin: 20px 0;
+  padding: 10px 22px;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+
+  background: #f5f5f5;
+  color: black;
+  border: 2px solid black;
+  border-radius: 0;            
+  
+  box-shadow: 3px 3px 0 black;   
+  cursor: pointer;
+}
+ 
+button:hover {
+  background: #eaeaea;
+}
+
+button:active {
+  box-shadow: 1px 1px 0 black;
+  transform: translate(2px, 2px); /* efecte botó premut */
+}
+
   @media (max-width: 600px) {
   #grid {
     grid-template-columns: repeat(3, 1fr);
@@ -51,7 +70,6 @@
 
 <script>
 const grups = [
-ff
   {nom:"BOB DYLAN", any:1962},
   {nom:"BEATLES", any:1963},
   {nom:"THE KINKS", any:1964},
